@@ -63,7 +63,7 @@ sub socket {
 
     my $logger = get_logger( "Batch Tagging", "lanraragi" );
 
-    $logger->info('客户端连接到批量标签服务');
+    $logger->info('用戶端連接到批量標籤服務');
 
     # Increase inactivity timeout for connection a bit to account for clientside timeouts
     $self->inactivity_timeout(80);
@@ -86,7 +86,7 @@ sub socket {
 
                 #If the array is empty(no overrides)
                 if ( !@args ) {
-                    $logger->debug("未给出用户覆盖。");
+                    $logger->debug("未給出用戶覆蓋。");
 
                     # Try getting the saved defaults
                     @args = get_plugin_parameters($pluginname);
@@ -95,10 +95,10 @@ sub socket {
                 # Run plugin with args on id
                 my $id = $command->{"archive"};
                 unless ($id) {
-                    $client->finish( 1001 => '没有提供档案。' );
+                    $client->finish( 1001 => '沒有提供檔案。' );
                     return;
                 }
-                $logger->debug("处理 $id");
+                $logger->debug("處理 $id");
 
                 my %plugin_result;
                 eval { %plugin_result = LANraragi::Model::Plugins::exec_metadata_plugin( $plugin, $id, "", @args ); };
@@ -137,7 +137,7 @@ sub socket {
 
         #If the client doesn't respond, halt processing
         finish => sub {
-            $logger->info('客户端断开连接，停止其余操作。');
+            $logger->info('用戶端斷開連接，停止其餘操作。');
             $cancelled = 1;
             $redis->quit();
         }
