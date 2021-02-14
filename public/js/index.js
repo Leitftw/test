@@ -96,8 +96,8 @@ function initSettings(version) {
 		localStorage.sawContextMenuToast = true;
 
 		$.toast({
-			heading: `欢迎使用 LANraragi ${version}!`,
-			text: "如果要对存档执行高级操作，请记住只需右键单击其名称。 祝您阅读愉快！",
+			heading: `歡迎使用 LANraragi ${version}!`,
+			text: "如果要對存檔執行高級操作，請記住只需右鍵單擊其名稱。 祝您閱讀愉快！",
 			hideAfter: false,
 			position: 'top-left',
 			icon: 'info'
@@ -175,7 +175,7 @@ function checkVersion(currentVersionConf) {
 
 			$.toast({
 				heading: '新的 LANraragi (' + data.tag_name + ') 可用 !',
-				text: '<a href="' + data.html_url + '">点击此处查看.</a>',
+				text: '<a href="' + data.html_url + '">點擊此處查看.</a>',
 				hideAfter: false,
 				position: 'top-left',
 				icon: 'info'
@@ -198,7 +198,7 @@ function handleContextMenu(option, id) {
 			window.open("./edit?id=" + id);
 			break;
 		case "delete":
-			if (confirm('你确定删除该档案吗?'))
+			if (confirm('你確定刪除該檔案嗎?'))
 				deleteArchive(id);
 			break;
 		case "read":
@@ -249,7 +249,7 @@ function loadTagSuggestions() {
 				}
 			});
 
-		}).fail(data => showErrorToast("无法加载标签建议", data.error));
+		}).fail(data => showErrorToast("無法載入標籤建議", data.error));
 }
 
 function loadCategories() {
@@ -275,7 +275,7 @@ function loadCategories() {
 				div = `<div style='display:inline-block'>
 						<input class='favtag-btn ${((category.id == selectedCategory) ? "toggled" : "")}' 
 							   type='button' id='${category.id}' value='${catName}' 
-							   onclick='toggleCategory(this)' title='单击此处显示此类别中包含的档案.'/>
+							   onclick='toggleCategory(this)' title='單擊此處顯示此類別中包含的檔案.'/>
 					   </div>`;
 
 				html += div;
@@ -304,7 +304,7 @@ function loadCategories() {
 			// Add a listener on dropdown selection
 			$("#catdropdown").on("change", () => toggleCategory($("#catdropdown")[0].selectedOptions[0]));
 
-		}).fail(data => showErrorToast("无法加载分类", data.error));
+		}).fail(data => showErrorToast("無法載入分類", data.error));
 }
 
 function encode(r) {
