@@ -3,7 +3,7 @@
 <html>
 
 <head>
-	<title>[% title %] - 自动-添加标签</title>
+	<title>[% title %] - 自動-添加標籤</title>
 
 	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -26,19 +26,19 @@
 <body onload="set_style_from_storage(); checkUntagged(); showOverride()">
 
 	<div class='ido' style='text-align:center'>
-		<h2 class='ih' style='text-align:center'>批量添加标签</h2>
+		<h2 class='ih' style='text-align:center'>批次添加標籤</h2>
 		<br><br>
 		<div style='margin-left:auto; margin-right:auto;'>
 			<div style='text-align:left; width:400px !important' class='left-column'>
 
 				<br>
-				您可以在此处通过一项操作在多个档案中使用插件。<br><br>
-				选择您的插件，检查要使用的存档，然后滚动！ <br>
-				没有标签的档案已被预先检查。<br><br>
-				<i class="fas fa-exclamation-triangle"></i> 如果您多次调用插件，某些外部服务
-				可能会暂时
-				禁止您的计算机超负荷运行！ <br /></br>
-				请确保使用下面的选择器在档案之间设置合适的 <b>超时时间</b> 如果涉及的插件
+				您可以在此處透過一項操作在多個檔案中使用插件。<br><br>
+				選擇您的插件，檢查要使用的存檔，然後滾動！ <br>
+				沒有標籤的檔案已被預先檢查。<br><br>
+				<i class="fas fa-exclamation-triangle"></i> 如果您多次調用插件，某些外部服務
+				可能會暫時
+				禁止您的計算機超負荷運行！ <br /></br>
+				請確保使用下面的選擇器在檔案之間設置合適的 <b>超時時間</b> 如果涉及的插件
 				您需要
 				使用。 <br /><br />
 
@@ -54,7 +54,7 @@
 								</select> </td>
 						</tr>
 						<tr>
-							<td>超时 (max 20s):</td>
+							<td>超時 (max 20s):</td>
 							<td>
 								<input type="number" id="timeout" min="0" max="20" value="0"> seconds </td>
 						</tr>
@@ -68,7 +68,7 @@
 							<td></td>
 							<td>
 								<input type="checkbox" id="override" onclick="showOverride()">
-								<label for="override">覆盖插件全局参数</label>
+								<label for="override">覆蓋插件全局參數</label>
 							</td>
 						</tr>
 					</tbody>
@@ -99,9 +99,9 @@
 
 				<div class="tag-options" style="text-align:center">
 					<br /><br />
-					<input type='button' value='选中/取消全部' class='stdbtn' checked='false'
+					<input type='button' value='選中/取消全部' class='stdbtn' checked='false'
 						onclick='checkAll(this)'>
-					<input type='button' value='开始标记' class='stdbtn' onclick='startBatch()'>
+					<input type='button' value='開始標記' class='stdbtn' onclick='startBatch()'>
 
 				</div>
 
@@ -111,7 +111,7 @@
 						onclick='restartBatchUI()'>
 					<div id="progress" style="padding-top:6px; padding-bottom:6px">
 						<div class="bar"></div>
-						当前运行 <span id="arcs"></span> 共 <span id="totalarcs"></span>
+						當前運行 <span id="arcs"></span> 共 <span id="totalarcs"></span>
 					</div>
 					<div class="id1" style="width:400px; height:314px">
 						<pre id="log-container" class="log-panel" />
@@ -129,7 +129,7 @@
 		</div>
 
 		<input class='stdbtn' type='button' onclick="window.location.href = './config/plugins';" value='插件配置' />
-		<input class='stdbtn' type='button' onclick="window.location.href = './';" value='回到资料库' />
+		<input class='stdbtn' type='button' onclick="window.location.href = './';" value='回到資料庫' />
 
 	</div>
 	[% INCLUDE footer %]
