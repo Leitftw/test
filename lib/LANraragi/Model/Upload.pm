@@ -35,11 +35,11 @@ sub handle_incoming_file {
     my ( $tempfile, $catid, $extratags ) = @_;
     my ( $filename, $dirs,  $suffix )    = fileparse( $tempfile, qr/\.[^.]*/ );
     $filename = $filename . $suffix;
-    my $logger = get_logger( "文件上传/下载", "lanraragi" );
+    my $logger = get_logger( "文件上傳/下載", "lanraragi" );
 
     # Check if file is an archive
     unless ( is_archive($filename) ) {
-        return ( 0, "deadbeef", $filename, "不支持的文件扩展名" );
+        return ( 0, "deadbeef", $filename, "不支持的文件副檔名" );
     }
 
     # Compute an ID here
@@ -64,8 +64,8 @@ sub handle_incoming_file {
         # The file already exists
         my $msg =
           $isdupe
-          ? "该文件已存在于库中。"
-          : "库中存在具有相同名称的文件。";
+          ? "該文件已存在於庫中。"
+          : "庫中存在具有相同名稱的文件。";
 
         return ( 0, $id, $filename, $msg );
     }
@@ -95,27 +95,27 @@ sub handle_incoming_file {
     move( $output_file . ".upload", $output_file );
 
     unless ( -e $output_file ) {
-        return ( 0, $id, $title, "该文件无法移动到您的内容文件夹！" );
+        return ( 0, $id, $title, "該文件無法移動到您的內容文件夾！" );
     }
 
     my $successmsg = "文件添加成功！";
 
     if ( LANraragi::Model::Config->enable_autotag ) {
-        $logger->debug("在新上传的文件上自动运行插件 $id...");
+        $logger->debug("在新上傳的文件上自動運行插件 $id...");
         my ( $succ, $fail, $addedtags ) = LANraragi::Model::Plugins::exec_enabled_plugins_on_file($id);
-        $successmsg = "$succ 插件已成功使用, $fail 插件运行失败, $addedtags 标签已添加.";
+        $successmsg = "$succ 插件已成功使用, $fail 插件運行失敗, $addedtags 標籤已添加.";
     }
 
     if ($catid) {
-        $logger->debug("添加上传文件到分类 $catid");
+        $logger->debug("添加上傳文件到分類 $catid");
 
         my ( $catsucc, $caterr ) = LANraragi::Model::Category::add_to_category( $catid, $id );
         if ($catsucc) {
             my %category = LANraragi::Model::Category::get_category($catid);
             my $catname  = $category{name};
-            $successmsg .= "添加到分类 '$catname'!";
+            $successmsg .= "添加到分類 '$catname'!";
         } else {
-            $successmsg .= "无法添加到分类: $caterr";
+            $successmsg .= "無法添加到分類: $caterr";
         }
     }
 
@@ -131,11 +131,11 @@ sub download_url {
 
     my ( $url, $ua ) = @_;
 
-    my $logger = get_logger( "文件上传/下载", "lanraragi" );
+    my $logger = get_logger( "文件上傳/下載", "lanraragi" );
 
     # Download to a temp folder
     die "Not a proper URL" unless $url;
-    $logger->info("下载 URL $url...这将需要一些时间。");
+    $logger->info("下載 URL $url...這將需要一些時間。");
 
     my $tempdir      = tempdir();
     my $tx           = $ua->max_redirects(5)->get($url);
