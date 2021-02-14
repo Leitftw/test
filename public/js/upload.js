@@ -8,7 +8,7 @@ var totalUploads = 0;
 // Handle updating the upload counters.
 function updateUploadCounters() {
 
-    $("#progressCount").html(`🤔 处理中: ${processingArchives} 🙌 完成: ${completedArchives} 👹 失败: ${failedArchives}`);
+    $("#progressCount").html(`🤔 處理中: ${processingArchives} 🙌 完成: ${completedArchives} 👹 失敗: ${failedArchives}`);
 
     var icon = (completedArchives == totalUploads) ? "fas fa-check-circle" :
         failedArchives > 0 ? "fas fa-exclamation-circle" :
@@ -30,11 +30,11 @@ function handleCompletedUpload(jobID, d) {
         $(`#${jobID}-link`).attr("href", `edit?id=${d.result.id}`);
 		}
     if (d.result.success) {
-        $(`#${jobID}-link`).html("点击此处编辑元数据。(" + d.result.message + ")")
+        $(`#${jobID}-link`).html("點擊此處編輯元數據。(" + d.result.message + ")")
         $(`#${jobID}-icon`).attr("class", "fa fa-check-circle");
         completedArchives++;
     } else {
-        $(`#${jobID}-link`).html("处理档案时发生错误.(" + d.result.message + ")");
+        $(`#${jobID}-link`).html("處理檔案時發生錯誤.(" + d.result.message + ")");
         $(`#${jobID}-icon`).attr("class", "fa fa-exclamation-circle");
         failedArchives++;
     }
@@ -46,7 +46,7 @@ function handleCompletedUpload(jobID, d) {
 
 function handleFailedUpload(jobID, d) {
 
-    $(`#${jobID}-link`).html("处理文件时出错.<br>(" + d + ")");
+    $(`#${jobID}-link`).html("處理文件時出錯.<br>(" + d + ")");
     $(`#${jobID}-icon`).attr("class", "fa fa-exclamation-circle");
 
     failedArchives++;
