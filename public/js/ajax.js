@@ -22,7 +22,7 @@ function showErrorToast(header, error) {
 function genericAPICall(endpoint, method, successMessage, errorMessage, successCallback) {
 
 	return fetch(endpoint, { method: method })
-		.then(response => response.ok ? response.json() : { success: 0, error: "响应不正确" })
+		.then(response => response.ok ? response.json() : { success: 0, error: "回應不正確" })
 		.then((data) => {
 
 			if (data.success) {
@@ -49,7 +49,7 @@ function genericAPICall(endpoint, method, successMessage, errorMessage, successC
 // Execute a callback on successful job completion.
 function checkJobStatus(jobId, callback, failureCallback) {
 	fetch(`api/minion/${jobId}`, { method: "GET" })
-		.then(response => response.ok ? response.json() : { success: 0, error: "响应不正确" })
+		.then(response => response.ok ? response.json() : { success: 0, error: "回應不正確" })
 		.then((data) => {
 
 			if (data.error)
@@ -69,7 +69,7 @@ function checkJobStatus(jobId, callback, failureCallback) {
 				callback(data);
 			}
 		})
-		.catch(error => { showErrorToast("检查 Minion 工作状态时出错", error); failureCallback(error) });
+		.catch(error => { showErrorToast("檢查 Minion 工作狀態時出錯", error); failureCallback(error) });
 }
 
 //saveFormData()
@@ -81,7 +81,7 @@ function saveFormData(formSelector) {
 	var postData = new FormData($(formSelector)[0]);
 
 	return fetch(window.location.href, { method: "POST", body: postData })
-		.then(response => response.ok ? response.json() : { success: 0, error: "响应不正确" })
+		.then(response => response.ok ? response.json() : { success: 0, error: "回應不正確" })
 		.then((data) => {
 			if (data.success) {
 				$.toast({
@@ -95,7 +95,7 @@ function saveFormData(formSelector) {
 				throw new Error(data.message);
 			}
 		})
-		.catch(error => showErrorToast("保存出错", error));
+		.catch(error => showErrorToast("保存出錯", error));
 }
 
 let isScriptRunning = false;
@@ -104,7 +104,7 @@ function triggerScript(namespace) {
 	const scriptArg = $("#" + namespace + "_ARG").val();
 
 	if (isScriptRunning) {
-		showErrorToast("一个脚本已在运行。", "请等待脚本终止。");
+		showErrorToast("一個腳本已在運行。", "請等待腳本終止。");
 		return;
 	}
 
@@ -114,7 +114,7 @@ function triggerScript(namespace) {
 
 	// Save data before triggering script
 	saveFormData('#editPluginForm')
-		.then(genericAPICall(`../api/plugins/use?plugin=${namespace}&arg=${scriptArg}`, "POST", null, "执行脚本时出错 :",
+		.then(genericAPICall(`../api/plugins/use?plugin=${namespace}&arg=${scriptArg}`, "POST", null, "執行腳本時出錯 :",
 			function (r) {
 				$.toast({
 					showHideTransition: 'slide',
@@ -139,27 +139,27 @@ function triggerScript(namespace) {
 }
 
 function cleanTempFldr() {
-	genericAPICall("api/tempfolder", "DELETE", "临时文件夹已清理!", "清理临时文件夹时出错 :",
+	genericAPICall("api/tempfolder", "DELETE", "臨時文件夾已清理!", "清理臨時文件夾時出錯 :",
 		function (data) {
 			$("#tempsize").html(data.newsize);
 		});
 }
 
 function invalidateCache() {
-	genericAPICall("api/search/cache", "DELETE", "丢弃搜索缓存!", "删除缓存时出错！ 请检查日志。", null);
+	genericAPICall("api/search/cache", "DELETE", "丟棄搜索快取!", "刪除快取時出錯！ 請檢查日誌。", null);
 }
 
 function clearNew(id) {
-	genericAPICall(`api/archives/${id}/isnew`, "DELETE", null, "清除新标签时出错！请检查日志。", null);
+	genericAPICall(`api/archives/${id}/isnew`, "DELETE", null, "清除新標籤時出錯！請檢查日誌。", null);
 }
 
 function clearAllNew() {
-	genericAPICall("api/database/isnew", "DELETE", "所有档案不再是新的!", "清除标签时出错！ 请检查日志。", null);
+	genericAPICall("api/database/isnew", "DELETE", "所有檔案不再是新的!", "清除標籤時出錯！ 請檢查日誌。", null);
 }
 
 function dropDatabase() {
-	if (confirm('危险！ 你确定要这么做吗?')) {
-		genericAPICall("api/database/drop", "POST", "Sayonara! 重定向...", "重置数据库时出错？ 请检查日志。",
+	if (confirm('危險！ 你確定要這麼做嗎?')) {
+		genericAPICall("api/database/drop", "POST", "Sayonara! 重定向...", "重設資料庫時出錯？ 請檢查日誌。",
 			function (data) {
 				setTimeout("location.href = './';", 1500);
 			});
@@ -167,13 +167,13 @@ function dropDatabase() {
 }
 
 function cleanDatabase() {
-	genericAPICall("api/database/clean", "POST", null, "清理数据库时出错！ 请检查日志。",
+	genericAPICall("api/database/clean", "POST", null, "清理資料庫時出錯！ 請檢查日誌。",
 		function (data) {
 			$.toast({
 				showHideTransition: 'slide',
 				position: 'top-left',
 				loader: false,
-				heading: "成功清理数据库并删除 " + data.deleted + " 条!",
+				heading: "成功清理資料庫並刪除 " + data.deleted + " 條!",
 				icon: 'success'
 			});
 
@@ -182,7 +182,7 @@ function cleanDatabase() {
 					showHideTransition: 'slide',
 					position: 'top-left',
 					loader: false,
-					heading: data.unlinked + " 其他条目已从数据库取消链接，将在下次清理时删除！ <br>如果某些文件从存档索引中消失，请立即进行备份。",
+					heading: data.unlinked + " 其他條目已從資料庫取消連結，將在下次清理時刪除！ <br>如果某些文件從存檔索引中消失，請立即進行備份。",
 					hideAfter: false,
 					icon: 'warning'
 				});
@@ -192,7 +192,7 @@ function cleanDatabase() {
 
 function rebootShinobu() {
 	$("#restart-button").prop("disabled", true);
-	genericAPICall("api/shinobu/restart", "POST", "后台服务重启!", "重启后台服务失败:",
+	genericAPICall("api/shinobu/restart", "POST", "後台服務重啟!", "重啟後台服務失敗:",
 		function (data) {
 			$("#restart-button").prop("disabled", false);
 			shinobuStatus();
@@ -202,7 +202,7 @@ function rebootShinobu() {
 //Update the status of the background worker.
 function shinobuStatus() {
 
-	genericAPICall("api/shinobu", "GET", null, "获取Shinobu状态失败:",
+	genericAPICall("api/shinobu", "GET", null, "獲取Shinobu狀態失敗:",
 		function (data) {
 			if (data.is_alive) {
 				$("#shinobu-ok").show();
@@ -218,7 +218,7 @@ function shinobuStatus() {
 
 //Adds an archive to a category. Basic implementation to use everywhere.
 function addArchiveToCategory(arcId, catId) {
-	genericAPICall(`/api/categories/${catId}/${arcId}`, 'PUT', `Added ${arcId} to Category ${catId}!`, "添加/移除档案到分类失败", null);
+	genericAPICall(`/api/categories/${catId}/${arcId}`, 'PUT', `Added ${arcId} to Category ${catId}!`, "添加/移除檔案到分類失敗", null);
 }
 
 //deleteArchive(id)
@@ -226,7 +226,7 @@ function addArchiveToCategory(arcId, catId) {
 function deleteArchive(arcId) {
 
 	fetch("edit?id=" + arcId, { method: "DELETE" })
-		.then(response => response.ok ? response.json() : { success: 0, error: "响应不正确" })
+		.then(response => response.ok ? response.json() : { success: 0, error: "回應不正確" })
 		.then((data) => {
 
 			if (data.success == "0") {
@@ -234,8 +234,8 @@ function deleteArchive(arcId) {
 					showHideTransition: 'slide',
 					position: 'top-left',
 					loader: false,
-					heading: "无法删除存档文件。 <br> (也许它已经被事先删除了?)",
-					text: '存档元数据已正确删除。 <br> 请先手动删除文件，然后再返回“资料库”。',
+					heading: "無法刪除存檔文件。 <br> (也許它已經被事先刪除了?)",
+					text: '存檔元數據已正確刪除。 <br> 請先手動刪除文件，然後再返回“資料庫”。',
 					hideAfter: false,
 					icon: 'warning'
 				});
@@ -247,13 +247,13 @@ function deleteArchive(arcId) {
 					showHideTransition: 'slide',
 					position: 'top-left',
 					loader: false,
-					heading: '存档已成功删除。重定向 ...',
+					heading: '存檔已成功刪除。重定向 ...',
 					text: 'File name : ' + data.success,
 					icon: 'success'
 				});
 				setTimeout("location.href = './';", 1500);
 			}
 		})
-		.catch(error => showErrorToast("删除档案时出错", error));
+		.catch(error => showErrorToast("刪除檔案時出錯", error));
 
 }
