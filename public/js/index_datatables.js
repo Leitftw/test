@@ -19,7 +19,7 @@ function initIndex(pagesize) {
 		'dom': '<"top"ip>rt<"bottom"p><"clear">',
 		'language': {
 			'info': '展示 _START_ 到 _END_ 共 _TOTAL_ 作品',
-			'infoEmpty': '<h1>当前没有档案！ 试试 <a href="upload">上传一些</a>?</h1><br/>',
+			'infoEmpty': '<h1>當前沒有檔案！ 試試 <a href="upload">上傳一些</a>?</h1><br/>',
 			'processing': '<div id="progress" class="indeterminate""><div class="bar-container"><div class="bar" style=" width: 80%; "></div></div></div>'
 		},
 		'preDrawCallback': thumbViewInit, //callbacks for thumbnail view
@@ -175,7 +175,7 @@ function addPageSelect(settings) {
 
 		$(".dataTables_paginate").toArray().forEach((div) => {
 
-			var container = $("<div class='page-select' >跳转到: </div>");
+			var container = $("<div class='page-select' >跳轉到: </div>");
 			var nInput = document.createElement('select');
 			$(nInput).attr("class", "favtag-btn");
 
