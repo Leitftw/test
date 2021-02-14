@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-	<title>[% title %] - 上传模式</title>
+	<title>[% title %] - 上傳模式</title>
 
 	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -27,44 +27,44 @@
 <body onload="initUpload()">
 
 	<div class='ido' style='text-align:center; font-size:8pt'>
-		<h1 class='ih' style='text-align:center'>上传文件到资料库</h1>
+		<h1 class='ih' style='text-align:center'>上傳文件到資料庫</h1>
 
-		从计算机或直接从Internet将文件添加到LANraragi。<br><br>
+		從計算機或直接從Internet將文件添加到LANraragi。<br><br>
 
 		<div style="margin-left:auto; margin-right:auto">
 
 			<div class="left-column">
 
-				将上传的文件添加到分类:
+				將上傳的文件添加到分類:
 				<select id="category" class="favtag-btn">
-					<option selected value=""> -- 无分类 -- </option>
+					<option selected value=""> -- 無分類 -- </option>
 					[% FOREACH categories %]
 					<option value="[% id %]">[% name %]</option>
 					[% END %]
 				</select> <br><br>
 
-				<h1 class='ih'>本地计算机</h1>
+				<h1 class='ih'>本地計算機</h1>
 
-				您可以将文件拖放到此窗口中，或单击上载按钮。
+				您可以將文件拖放到此窗口中，或單擊上載按鈕。
 				<br><br>
 
 				<span class='stdbtn fileinput-button' style="height:50px;">
 					<i class='fas fa-download fa-2x' style='padding-top:6px; padding-bottom: 5px'></i><br>
-					<span>从您的计算机添加</span>
+					<span>從您的計算機添加</span>
 					<input type='file' name='file' multiple id='fileupload'>
 				</span>
 
 				<br><br>
-				<h1 class='ih'>来自网络</h1>
+				<h1 class='ih'>來自網路</h1>
 
-				您可以从此处将远程URL中的文件直接下载到LANraragi中。<br>
-				即使关闭此窗口，下载作业也将继续进行！<br><br>
+				您可以從此處將遠程URL中的文件直接下載到LANraragi中。<br>
+				即使關閉此窗口，下載作業也將繼續進行！<br><br>
 
-				输入您的URL（用换行符分隔），然后单击下载按钮。 <br>
-				如果一个 <a href="/config/plugins">下载插件</a> 适用于该链接, 将会被自动
+				輸入您的URL（用換行符分隔），然後單擊下載按鈕。 <br>
+				如果一個 <a href="/config/plugins">下載插件</a> 適用於該連結, 將會被自動
 				使用。<br><br>
 
-				<label for="download_url">下载的链接:</label>
+				<label for="download_url">下載的連結:</label>
 				<textarea type="text" name="urls" id="urlForm"
 					style="width: 400px; height: 100px; white-space: pre;"></textarea>
 				<br><br>
@@ -72,7 +72,7 @@
 
 				<span class='stdbtn fileinput-button' style="height:50px;" onclick="downloadUrl()">
 					<i class='fas fa-cloud-download-alt fa-2x' style='padding-top:6px; padding-bottom: 5px'></i><br>
-					<span>从链接添加</span>
+					<span>從連結添加</span>
 				</span>
 
 			</div>
@@ -98,7 +98,7 @@
 		</div>
 
 		<br><br>
-		<input class='stdbtn' type='button' onclick="window.location.replace('./');" value='返回资料库' />
+		<input class='stdbtn' type='button' onclick="window.location.replace('./');" value='返回資料庫' />
 	</div>
 
 	[% INCLUDE footer %]
