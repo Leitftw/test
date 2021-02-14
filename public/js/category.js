@@ -2,7 +2,7 @@ let categories = [];
 
 function addNewCategory(isDynamic) {
 
-    const catName = prompt("输入一个分类的名称:", "我的分类");
+    const catName = prompt("輸入一個分類的名稱:", "我的分類");
     if (catName == null || catName == "") {
         return;
     }
@@ -11,7 +11,7 @@ function addNewCategory(isDynamic) {
     const searchtag = isDynamic ? "language:english" : "";
 
     // Make an API request to create the category, if search is empty -> static, otherwise dynamic
-    genericAPICall(`/api/categories?name=${catName}&search=${searchtag}`, "PUT", `Category "${catName}" created!`, "创建分类出错:",
+    genericAPICall(`/api/categories?name=${catName}&search=${searchtag}`, "PUT", `Category "${catName}" created!`, "創建分類出錯:",
         function (data) {
             // Reload categories and select the newly created ID
             loadCategories(data.category_id);
@@ -32,7 +32,7 @@ function loadCategories(selectedID) {
             const catCombobox = document.getElementById('category');
             catCombobox.options.length = 0;
             // Add default
-            catCombobox.options[catCombobox.options.length] = new Option("-- 无分类 --", "", true, false);
+            catCombobox.options[catCombobox.options.length] = new Option("-- 無分類 --", "", true, false);
 
             // Add categories, select if the ID matches the optional argument
             data.forEach(c => {
@@ -41,7 +41,7 @@ function loadCategories(selectedID) {
             // Update form with selected category details
             updateCategoryDetails();
         })
-        .catch(error => showErrorToast("从服务器获取分类出错", error));
+        .catch(error => showErrorToast("從伺服器獲取分類出錯", error));
 
 }
 
@@ -120,7 +120,7 @@ function updateArchiveInCategory(id, checked) {
     const categoryID = document.getElementById('category').value;
     indicateSaving();
     // PUT/DELETE api/categories/catID/archiveID
-    genericAPICall(`/api/categories/${categoryID}/${id}`, checked ? 'PUT' : 'DELETE', null, "添加/移除文件到分类出错",
+    genericAPICall(`/api/categories/${categoryID}/${id}`, checked ? 'PUT' : 'DELETE', null, "添加/移除文件到分類出錯",
         function (data) {
             // Reload categories and select the archive list properly
             indicateSaved();
@@ -130,9 +130,9 @@ function updateArchiveInCategory(id, checked) {
 
 function deleteSelectedCategory() {
     const categoryID = document.getElementById('category').value;
-    if (confirm("你确定吗？ 该类别将被永久删除！")) {
+    if (confirm("你確定嗎？ 該類別將被永久刪除！")) {
 
-        genericAPICall(`/api/categories/${categoryID}`, "DELETE", "分类已删除", "删除分类出错",
+        genericAPICall(`/api/categories/${categoryID}`, "DELETE", "分類已刪除", "刪除分類出錯",
             function (data) {
                 // Reload categories to show the archive list properly
                 loadCategories();
@@ -150,8 +150,8 @@ function indicateSaved() {
 
 function predicateHelp() {
     $.toast({
-        heading: '填入关键词',
-        text: '谓词遵循与“存档索引”中的搜索相同的语法。参考 <a href="https://sugoi.gitbook.io/lanraragi/basic-operations/searching">文件</a> 获取更多信息',
+        heading: '填入關鍵字',
+        text: '謂詞遵循與“存檔索引”中的搜索相同的語法。參考 <a href="https://sugoi.gitbook.io/lanraragi/basic-operations/searching">文件</a> 獲取更多訊息',
         hideAfter: false,
         position: 'top-left',
         icon: 'info'
