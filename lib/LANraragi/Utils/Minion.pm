@@ -56,7 +56,7 @@ sub add_tasks {
             my ( $file, $catid ) = @args;
 
             my $logger = get_logger( "Minion", "minion" );
-            $logger->info("处理上传的文件 $file...");
+            $logger->info("處理上傳的文件 $file...");
 
 # Superjank warning for the code below.
 #
@@ -97,14 +97,14 @@ sub add_tasks {
             my $og_url = $url;                               # Keep a clean copy of the url for final response
             my $ua     = Mojo::UserAgent->new;
             my $logger = get_logger( "Minion", "minion" );
-            $logger->info("下载 url $url...");
+            $logger->info("下載 url $url...");
 
             # Check downloader plugins for one matching the given URL
             my $downloader = get_downloader_for_url($url);
 
             if ($downloader) {
 
-                $logger->info( "发现下载器" . $downloader->{namespace} );
+                $logger->info( "發現下載器" . $downloader->{namespace} );
 
                 # Use the downloader to transform the URL
                 my $plugname = $downloader->{namespace};
@@ -126,13 +126,13 @@ sub add_tasks {
                 $url = $plugin_result->{download_url};
                 $logger->info("URL transformed by plugin to $url");
             } else {
-                $logger->debug("找不到下载程序，尝试直接下载 URL.");
+                $logger->debug("找不到下載程序，嘗試直接下載 URL.");
             }
 
             # Download the URL
             eval {
                 my $tempfile = LANraragi::Model::Upload::download_url( $url, $ua );
-                $logger->info("链接已下载到 $tempfile");
+                $logger->info("連結已下載到 $tempfile");
 
                 # Add the url as a source: tag
                 my $tag = "";
