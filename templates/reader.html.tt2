@@ -58,7 +58,7 @@
 
 		<div id="i5">
 			<div class="sb">
-				<a href="./" title="看完了吗？ 返回档案索引">
+				<a href="./" title="看完了嗎？ 返回檔案索引">
 					<i class="fa fa-angle-down fa-3x"></i>
 				</a>
 			</div>
@@ -67,21 +67,21 @@
 		[% IF userlogged %]
 		<div id="i6" class="if">
 			<i class="fa fa-caret-right fa-lg"></i>
-			<a style="cursor:pointer" onclick="confirmThumbnailReset('[% id %]')">重新生成存档缩略图 </a>
+			<a style="cursor:pointer" onclick="confirmThumbnailReset('[% id %]')">重新生成存檔縮圖 </a>
 			<i class="fa fa-caret-right fa-lg"></i>
-			<a href="./reader?id=[% id %]&force_reload=1">清理存档缓存</a>
+			<a href="./reader?id=[% id %]&force_reload=1">清理存檔快取</a>
 			<i class="fa fa-caret-right fa-lg"></i>
-			<a target="_blank" href="./edit?id=[% id %]">编辑此存档的元数据</a>
+			<a target="_blank" href="./edit?id=[% id %]">編輯此存檔的元數據</a>
 		</div>
 		[% END %]
 
 		<div id="i7" class="if">
 			<i class="fa fa-caret-right fa-lg"></i>
-			<a id="imgLink" style="cursor:pointer;">查看原图</a>
+			<a id="imgLink" style="cursor:pointer;">查看原圖</a>
 			<i class="fa fa-caret-right fa-lg"></i>
-			<a href="./random">切换到另一个随机档案</a>
+			<a href="./random">切換到另一個隨機檔案</a>
 			<i class="fa fa-caret-right fa-lg"></i>
-			<a href="./">返回资料库</a>
+			<a href="./">返回資料庫</a>
 		</div>
 
 	</div>
@@ -98,8 +98,8 @@
 					showHideTransition: 'slide',
 					position: 'top-left', 
 					loader: false, 
-				    heading: "该文件似乎是RAR格式!",
-				    text: 'RAR存档在LANraragi中可能无法正常运行，具体取决于其压缩方式。 如果阅读时遇到错误，请考虑将存档转换为zip。',
+				    heading: "該文件似乎是RAR格式!",
+				    text: 'RAR存檔在LANraragi中可能無法正常運行，具體取決於其壓縮方式。 如果閱讀時遇到錯誤，請考慮將存檔轉換為zip。',
 				    hideAfter: false,
 				    icon: 'warning'
 				});
@@ -111,8 +111,8 @@
 					showHideTransition: 'slide',
 					position: 'top-left', 
 					loader: false, 
-				    heading: "LANraragi中对EPUB的支持最基础",
-				    text: 'EPUB书籍只会在网络阅读器中显示图像。 如果需要文本支持，请考虑将LANraragi与 <a href= "https://sugoi.gitbook.io/lanraragi/advanced-usage/external-readers#generic-opds-readers">OPDS 配合.</a> ',
+				    heading: "LANraragi中對EPUB的支持最基礎",
+				    text: 'EPUB書籍只會在網路閱讀器中顯示圖像。 如果需要文本支持，請考慮將LANraragi與 <a href= "https://sugoi.gitbook.io/lanraragi/advanced-usage/external-readers#generic-opds-readers">OPDS 配合.</a> ',
 				    hideAfter: false,
 				    icon: 'warning'
 				});
@@ -151,7 +151,7 @@
 
 	<div id="overlay-shade" onclick="closeOverlay();"></div>
 	<div id="archivePagesOverlay" class="id1 base-overlay page-overlay" style="display:none" loaded="false">
-		<h2 class="ih" style="text-align:center">档案总览</h2>
+		<h2 class="ih" style="text-align:center">檔案總覽</h2>
 	</div>
 	<div id="settingsOverlay" class="id1 base-overlay small-overlay" style="display:none">
 		[% INCLUDE config %]
@@ -171,63 +171,63 @@
 <!-- -->
 [% BLOCK config %]
 
-<h2 class="ih" style="text-align:center">阅读器选项</h2>
+<h2 class="ih" style="text-align:center">閱讀器選項</h2>
 <div style="margin:auto; font-size:8pt;">
 
 	<div class="config-panel">
-		<h1 class="ih" style="display:inline"> 日式阅读顺序 </h1>
+		<h1 class="ih" style="display:inline"> 日式閱讀順序 </h1>
 		<input id="readorder" name="readorder" class="fa" type="checkbox" style="float:left">
-		<br /> 如果启用，页面将从右到左显示。
+		<br /> 如果啟用，頁面將從右到左顯示。
 	</div>
 
 	<div class="config-panel">
-		<h1 class="ih" style="display:inline"> 双页阅读 </h1>
+		<h1 class="ih" style="display:inline"> 雙頁閱讀 </h1>
 		<input id="doublepage" name="doublepage" class="fa" type="checkbox" style="float:left">
-		<br /> 如果启用，将一次显示两页。（这不包括宽画幅）
+		<br /> 如果啟用，將一次顯示兩頁。（這不包括寬畫幅）
 	</div>
 
 	<div class="config-panel">
-		<h1 class="ih" style="display:inline"> 适应屏幕</h1>
+		<h1 class="ih" style="display:inline"> 適應螢幕</h1>
 		<input id="scaletoview" name="scaletoview" class="fa" type="checkbox" style="float:left">
-		<br /> 如果启用，页面将按屏幕尺寸缩放。
+		<br /> 如果啟用，頁面將按螢幕尺寸縮放。
 	</div>
 	<div class="config-panel">
-		<h1 class="ih" style="display:inline"> 强制宽度适应</h1>
+		<h1 class="ih" style="display:inline"> 強制寬度適應</h1>
 		<input id="forcefullwidth" name="forcefullwidth" class="fa" type="checkbox" style="float:left">
-		<br /> 如果启用，页面将被放大以适合浏览器的宽度（如果页面较小）.
-		<br /> 如果启用，此选项将覆盖“适应屏幕”.
+		<br /> 如果啟用，頁面將被放大以適合瀏覽器的寬度（如果頁面較小）.
+		<br /> 如果啟用，此選項將覆蓋“適應螢幕”.
 	</div>
 	<div class="config-panel">
-		<h1 class="ih" style="display:inline"> 隐藏顶层导航</h1>
+		<h1 class="ih" style="display:inline"> 隱藏頂層導航</h1>
 		<input id="hidetop" name="hidetop" class="fa" type="checkbox" style="float:left">
-		<br /> 如果启用，则顶部图像之前的每个元素都将被隐藏。
+		<br /> 如果啟用，則頂部圖像之前的每個元素都將被隱藏。
 	</div>
 
 	<div class="config-panel">
-			<h1 class="ih" style="display:inline"> 禁用自动书签</h1>
+			<h1 class="ih" style="display:inline"> 禁用自動書籤</h1>
 			<input id="nobookmark" name="nobookmark" class="fa" type="checkbox" style="float:left">
-			<br /> 每次打开阅读器时，勾选此项将从第一页开始阅读。
+			<br /> 每次打開閱讀器時，勾選此項將從第一頁開始閱讀。
 	</div>
 </div>
 
 <br />
 <br />
-<input value="保存和关闭" onclick="saveSettings()" class="stdbtn" id="goback" type="button">
+<input value="保存和關閉" onclick="saveSettings()" class="stdbtn" id="goback" type="button">
 <br />
 <br />
 <br />
 [% IF userlogged %]
-<h2 class="ih" style="text-align:center">添加到分类</h2>
+<h2 class="ih" style="text-align:center">添加到分類</h2>
 <div style="margin:auto; font-size:8pt;">
 
 	<select id="category" class="favtag-btn" style="width:200px; margin-right: 8px">
-		<option selected value=""> -- 无分类 -- </option>
+		<option selected value=""> -- 無分類 -- </option>
 		[% FOREACH categories %]
 		<option value="[% id %]">[% name %]</option>
 		[% END %]
 	</select>
 
-	<input value="添加档案" onclick="addArchiveToCategory('[% id %]', $('#category').val())" class="stdbtn"
+	<input value="添加檔案" onclick="addArchiveToCategory('[% id %]', $('#category').val())" class="stdbtn"
 		id="goback" type="button">
 </div>
 [% END %]
