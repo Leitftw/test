@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-	<title>[% title %] - 日志</title>
+	<title>[% title %] - 日誌</title>
 
 	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -21,23 +21,23 @@
 <body onload="set_style_from_storage()">
 
 	<div class='ido' style='text-align:center'>
-		<h2 class='ih' style='text-align:center'>软件日志</h2>
+		<h2 class='ih' style='text-align:center'>軟體日誌</h2>
 
 		<br>
-		您可以在此处检查LANraragi日志以进行调试。<br>
-		默认情况下，此视图仅显示每个日志文件的最后100行，最后一行显示最新行。 <br><br>
+		您可以在此處檢查LANraragi日誌以進行除錯。<br>
+		默認情況下，此視圖僅顯示每個日誌檔案的最後100行，最後一行顯示最新行。 <br><br>
 		<ul>
-			<li>常规日志与主应用程序有关。 </li>
-			<li>Shinobu日志对应于后台监视进程。</li>
-			<li>插件日志仅针对元数据插件。 </li>
-			<li>除非您正在运行“调试模式”，否则Mojolicious日志不会告诉您太多信息。 </li>
-			<li>Redis日志仅适用于Docker / Windows / Homebrew用户。 </li>
+			<li>常規日誌與主應用程式有關。 </li>
+			<li>Shinobu日誌對應於後台監視進程。</li>
+			<li>插件日誌僅針對元數據插件。 </li>
+			<li>除非您正在運行“除錯模式”，否則Mojolicious日誌不會告訴您太多訊息。 </li>
+			<li>Redis日誌僅適用於Docker / Windows / Homebrew用戶。 </li>
 		</ul>
-		<br>汉化：昭君。访问<a href="http://yuanfangblog.xyz"> 我的博客 </a>和<a href="https://space.bilibili.com/6976331"> Bilibili空间 </a>获取更多信息和教程<br>
-		<br>点击 <a href="http://yuanfangblog.xyz/usr/uploads/2020/10/195169827.zip"> 此处下载 </a>汉化版安卓手机客户端<br>
+		<br>漢化：昭君。訪問<a href="http://yuanfangblog.xyz"> 我的部落格 </a>和<a href="https://space.bilibili.com/6976331"> Bilibili空間 </a>獲取更多訊息和教學<br>
+		<br>點擊 <a href="http://yuanfangblog.xyz/usr/uploads/2020/10/195169827.zip"> 此處下載 </a>漢化版安卓手機用戶端<br>
 		<br><br>
 
-		<h1 class='ih' style='float:left; margin-left: 5%;'>当前视图: <span id="indicator">通常</span></h1>
+		<h1 class='ih' style='float:left; margin-left: 5%;'>當前視圖: <span id="indicator">通常</span></h1>
 
 		<div style="margin-right: 5%;float: right;">
 
@@ -45,7 +45,7 @@
 				<i style="padding-right: 10px;" class="fa fa-sync-alt fa-2x"></i>
 			</a>
 
-			显示行: <input type="number" min="0" value="100" id="loglines" onchange="refreshLog()" style="width: 60px;">
+			顯示行: <input type="number" min="0" value="100" id="loglines" onchange="refreshLog()" style="width: 60px;">
 
 		</div>
 
@@ -63,18 +63,18 @@
 
 		<br><br>
 		<span id='buttonstagging'>
-			<input type='button' value='查看 LANraragi 日志' class='stdbtn' onclick='showLog("general")'>
+			<input type='button' value='查看 LANraragi 日誌' class='stdbtn' onclick='showLog("general")'>
 
-			<input type='button' value='查看 Shinobu 日志' class='stdbtn' onclick='showLog("shinobu")'>
+			<input type='button' value='查看 Shinobu 日誌' class='stdbtn' onclick='showLog("shinobu")'>
 
-			<input type='button' value='查看 插件 日志' class='stdbtn' onclick='showLog("plugins")'>
+			<input type='button' value='查看 插件 日誌' class='stdbtn' onclick='showLog("plugins")'>
 
-			<input type='button' value='查看 Mojolicious 日志' class='stdbtn' onclick='showLog("mojo")'>
+			<input type='button' value='查看 Mojolicious 日誌' class='stdbtn' onclick='showLog("mojo")'>
 
-			<input type='button' value='查看 Redis 日志' class='stdbtn' onclick='showLog("redis")'>
+			<input type='button' value='查看 Redis 日誌' class='stdbtn' onclick='showLog("redis")'>
 
 			<br><br>
-			<input class='stdbtn' type='button' onclick="window.location.replace('/');" value='返回资料库' />
+			<input class='stdbtn' type='button' onclick="window.location.replace('/');" value='返回資料庫' />
 
 		</span>
 
