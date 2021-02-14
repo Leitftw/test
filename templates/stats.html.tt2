@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-	<title>[% title %] - 资料库统计</title>
+	<title>[% title %] - 資料庫統計</title>
 
 	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -47,7 +47,7 @@
 				">
 
 	<div class='ido' style='text-align:center'>
-		<h2 class="ih" style="text-align:center">资料库统计</h2>
+		<h2 class="ih" style="text-align:center">資料庫統計</h2>
 		<br>
 		<br>
 
@@ -55,17 +55,17 @@
 
 			<h1 class="ih">
 				<i class="fa fa-book fa-2x" aria-hidden="true"></i> <span style="font-size: 20px"> [% archivecount %] </span>
-				件档案
+				件檔案
 				<br><br>
-				<i class="fa fa-tags fa-2x" aria-hidden="true"></i> <span style="font-size: 20px" id="tagcount"> </span> 个
-				标签
+				<i class="fa fa-tags fa-2x" aria-hidden="true"></i> <span style="font-size: 20px" id="tagcount"> </span> 個
+				標籤
 				<br><br>
 				<i class="fa fa-folder-open fa-2x" aria-hidden="true"></i> <span style="font-size: 20px"> [% arcsize %] GB </span>
-				空间占用
+				空間占用
 
 				<br><br><br>
 
-				标签云 <br>
+				標籤雲 <br>
 			</h1>
 
 
@@ -79,7 +79,7 @@
 
 		<br>
 		<br>
-		<input type="button" value="返回资料库" onclick="window.location.replace('./');" class="stdbtn" id="goback">
+		<input type="button" value="返回資料庫" onclick="window.location.replace('./');" class="stdbtn" id="goback">
 
 
 
