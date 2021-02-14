@@ -32,8 +32,8 @@ function toastHelpReader() {
 	$.toast().reset('all');
 
 	$.toast({
-		heading: '导航帮助',
-		text: '您可以使用以下命令在页面之间导航：<ul><li>箭头图标</li> <li>您的键盘箭头（和空格键）</li> <li>触摸图像的左侧/右侧。</li></ul><br> 要返回档案索引，请触摸向下的箭头。<br>按CTRL键将打开页面覆盖。',
+		heading: '導航幫助',
+		text: '您可以使用以下命令在頁面之間導航：<ul><li>箭頭圖示</li> <li>您的鍵盤箭頭（和空格鍵）</li> <li>觸摸圖像的左側/右側。</li></ul><br> 要返回檔案索引，請觸摸向下的箭頭。<br>按CTRL鍵將打開頁面覆蓋。',
 		hideAfter: false,
 		position: 'top-left',
 		icon: 'info'
