@@ -14,7 +14,7 @@ function checkUntagged() {
                 showHideTransition: 'slide',
                 position: 'top-left',
                 loader: false,
-                heading: "获取未加标签的存档时出错！",
+                heading: "獲取未加標籤的存檔時出錯！",
                 icon: 'error'
             });
         });
@@ -26,7 +26,7 @@ function startBatch() {
 
     $('.tag-options').hide();
 
-    $("#log-container").html('开始批量获取标签操作...\n************\n');
+    $("#log-container").html('開始批次獲取標籤操作...\n************\n');
     $('#cancel-job').show();
     $('#restart-job').hide();
     $('.job-status').show();
@@ -110,15 +110,15 @@ function updateBatchStatus(event) {
     var msg = JSON.parse(event.data);
 
     if (msg.success === 0) {
-        $("#log-container").append('处理 ID ' + msg.id + '(' + msg.message + ')时发生插件错误\n');
+        $("#log-container").append('處理 ID ' + msg.id + '(' + msg.message + ')時發生插件錯誤\n');
     } else {
-        $("#log-container").append('处理 ' + msg.id + '(添加标签: ' + msg.tags + ')\n');
+        $("#log-container").append('處理 ' + msg.id + '(添加標籤: ' + msg.tags + ')\n');
 
         //Uncheck ID in list
         $('#' + msg.id)[0].checked = false;
 
         if (msg.title != "") {
-            $("#log-container").append('修改标题为: ' + msg.title + '\n');
+            $("#log-container").append('修改標題為: ' + msg.title + '\n');
         }
     }
 
@@ -134,7 +134,7 @@ function updateBatchStatus(event) {
 
 function batchError(event) {
 
-    $("#log-container").append('************\n错误！ 终止会话。\n');
+    $("#log-container").append('************\n錯誤！ 終止會話。\n');
     scrollLogs();
 
     $.toast({
@@ -142,8 +142,8 @@ function batchError(event) {
         position: 'top-left',
         loader: false,
         hideAfter: false,
-        heading: '在批量添加标签时出错！',
-        text: '请检查错误日志。',
+        heading: '在批次添加標籤時出錯！',
+        text: '請檢查錯誤日誌。',
         icon: 'error'
     });
 }
@@ -162,7 +162,7 @@ function endBatch(event) {
         showHideTransition: 'slide',
         position: 'top-left',
         loader: false,
-        heading: "批量添加标签完成！",
+        heading: "批次添加標籤完成！",
         text: '',
         icon: status
     });
